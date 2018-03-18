@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="Style.css">
+		<meta charset="UTF-8">
+		<title>Nombre del Sitio</title>
+	</head>
+
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="Index.html">Inicio</a></li>
+					<li><a href="Registrate.html">Registrate</a></li>
+					<li><a href="QueBuscas.html">Que Buscas</a></li>
+					<li><a href="Ayuda.html">Ayuda</a></li>
+				</ul>
+		    </nav>
+		    <div id="buscar">
+				<form action="Index.php">
+					<input type="text" id="fname" name="firstname" placeholder="Buscar..">  
+				    <input type="submit" value="buscar">
+				</form>
+			</div>
+		</header>
+
+		<div id="centro">
+			<?php
+				$conn = new mysqli("localhost","root","","tienda");
+				if (!$conn) {
+					die("Connection failed: " . mysqli_connect_error());
+				}
+				
+			?>
+
+			<h2>Registrar</h2>
+ 		<div id="registrar">
+ 			<form action="#" method="post">
+ 				<p><b>Correo Electronico</b></p><input type="text" name="email" id="email"/>
+ 				<p><b>Clave de Usuario</b></p> <input type="password" name="psw" id="psw"/>
+				</br></br><input type="submit" value="Registrar"/>	
+ 			</form>
+		</div>  
+		</div>
+		
+		<aside>
+			<div class="mySlides">
+				<a  href="#"><img id="anuncios" src="1.jpg"></a>
+			</div>
+			<div class="mySlides">
+				<a href="#"><img id="anuncios" src="2.jpg"></a>
+			</div>
+			<div class="mySlides">
+				<a href="#"><img id="anuncios" src="3.jpg"></a>
+			</div>
+		</aside>
+
+		<script>
+			var myIndex = 0;
+			carouse();
+			function carouse() {
+    		var i;
+    		var x = document.getElementsByClassName("mySlides");
+    		for (i = 0; i < x.length; i++) {
+       			x[i].style.display = "none";  
+    		}
+    		myIndex++;
+    		if (myIndex > x.length) {myIndex = 1}    
+    		x[myIndex-1].style.display = "block";  
+    		setTimeout(carouse, 2000);
+			}
+		</script>
+
+		<div id="footer">
+			<p>Jose Alexis Moreno Abad</p>
+			<p><a href="https://www.linkedin.com/in/jose-alexis-moreno-abad-b936a1136/">linkedig</a></p>
+			<p>Celular: 829-291-6844</p>
+		</div>
+	</body>
+</html>
